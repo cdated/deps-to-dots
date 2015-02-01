@@ -7,12 +7,12 @@ Reads #include statements in C and C++ code to generate a graphviz dot file.
 
 The script starts with the main file and stays within the project.
 
-./make_dot.py [project_root] > example.dot
+```./make_dot.py [project_root] > example.dot```
 
 Example:
 XML Indent makes a good example (https://github.com/penberg/xmlindent).  Clone xmlindent and set the [project root] to be the xmlindent project path.
 
-./make_dot.py ../xmlindent > example.dot
+```./make_dot.py ../xmlindent > example.dot```
 
 ### Example in Gephi:
 
