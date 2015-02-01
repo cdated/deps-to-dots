@@ -44,29 +44,25 @@ def record_project_files(root_path):
 def usage():
     """ Let the user know the expected runtime args """
 
-    if len(sys.argv) < 3:
-        print("Usage: ./make_dot.py [top_level_file] [project_root]")
+    if len(sys.argv) != 2:
+        print("Usage: ./make_dot.py [project_root]")
         sys.exit()
 
 def main():
+    """ Recurse through a project to get the include relationships """
+
     usage()
 
-    initial_file = sys.argv[1]
-    root_path = sys.argv[2]
-
-    files_in_tree[initial_file] = initial_file
+    root_path = sys.argv[1]
     record_project_files(root_path)
 
     print('digraph "source tree" {')
 
-    # Start with the user specified main file
-    # and recurse through it's included files
-    inspect_file(initial_file)
-
-    # Check the remaining files in the project
+    # Recurse through the project files
     for source_file in files_in_tree:
         if not source_file in inspected:
             inspect_file(source_file)
+
     print('}')
 
 if __name__ == '__main__':
