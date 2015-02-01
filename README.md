@@ -5,7 +5,7 @@ Reads #include statements in C and C++ code to generate a graphviz dot file.
 
 ### Usage:
 
-The script starts with the main file and stays within the project.
+The script walks through a project given the project directory path and documents the include relationships.
 
 ```./make_dot.py [project_root] > example.dot```
 
