@@ -4,12 +4,14 @@ import sys
 import re
 import os
 
+from graphviz import Digraph
+
 files_in_tree = {}
 inspected = {}
 
 include_regex = r'#include [<"](.*)[>"]'
 
-def inspect_file(file_name):
+def inspect_file(file_name, graph):
     """ Recursively evaluate the file #includes and throughout the project. """
 
     # Ensure the inspected files are within the project tree
@@ -23,12 +25,16 @@ def inspect_file(file_name):
         match = re.match(include_regex, line)
         if match:
             dep = match.group(1)
-            print('\t"%s" -> "%s"' % (file_name, dep))
+            graph.edge(dep, file_name)
 
             if not dep in inspected:
-                inspect_file(dep)
+                inspect_out = inspect_file(dep, graph)
+                if inspect_out:
+                    graph = inspect_out
 
     file_obj.close()
+
+    return graph
 
 def record_project_files(root_path):
     """ Walk the root path of the project to keep a dict of files within
@@ -56,14 +62,15 @@ def main():
     root_path = sys.argv[1]
     record_project_files(root_path)
 
-    print('digraph "source tree" {')
+    graph = Digraph('G', filename='source_tree.gv')
 
     # Recurse through the project files
     for source_file in files_in_tree:
         if not source_file in inspected:
-            inspect_file(source_file)
+            graph = inspect_file(source_file, graph)
 
-    print('}')
+    graph.save()
+    graph.view()
 
 if __name__ == '__main__':
     main()
