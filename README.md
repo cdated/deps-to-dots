@@ -17,4 +17,4 @@ XML Indent makes a good example (https://github.com/penberg/xmlindent).  Clone x
 #### Gephi Visualization:
 
 Gephi is a great tool to visualize graphviz dot files.  Here is the result of loading the generated xmlindent dot file in Gephi: 
-![Gephi Graph](https://raw.githubusercontent.com/cdated/deps-to-dots/master/example/example_gephi.png)
+![Gephi Graph](https://raw.githubusercontent.com/cdated/deps-to-dots/master/example/xmlindent.png)
