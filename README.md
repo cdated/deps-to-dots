@@ -16,5 +16,5 @@ XML Indent makes a good example (https://github.com/penberg/xmlindent).  Clone x
 
 #### Graph Output:
 
-For xmlindent ```make_dots.py``` will render the following graph and save the corresponding dot file: 
+For xmlindent, ```make_dots.py``` will render the following graph and save the corresponding dot file: 
 ![GV Graph](https://raw.githubusercontent.com/cdated/deps-to-dots/master/example/xmlindent.png)
