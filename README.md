@@ -7,14 +7,14 @@ Reads #include statements in C and C++ code to generate a graphviz dot file.
 
 The script walks through a project given the project directory path and documents the include relationships.
 
-```./make_dot.py [project_root] > example.dot```
+```./make_dot.py [project_root]```
 
 ### Example:
 XML Indent makes a good example (https://github.com/penberg/xmlindent).  Clone xmlindent and set the [project root] to be the xmlindent project path.
 
-```./make_dot.py ../xmlindent > example.dot```
+```./make_dot.py ../xmlindent```
 
-#### Gephi Visualization:
+#### Graph Output:
 
-Gephi is a great tool to visualize graphviz dot files.  Here is the result of loading the generated xmlindent dot file in Gephi: 
-![Gephi Graph](https://raw.githubusercontent.com/cdated/deps-to-dots/master/example/xmlindent.png)
+For xmlindent ```make_dots.py``` will render the following graph and save the corresponding dot file: 
+![GV Graph](https://raw.githubusercontent.com/cdated/deps-to-dots/master/example/xmlindent.png)
