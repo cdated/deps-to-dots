@@ -56,3 +56,5 @@ target/
 # Graphviz
 *.gv
 *.gv.pdf
+*.dot
+*.dot.pdf

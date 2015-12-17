@@ -62,7 +62,7 @@ def main():
     root_path = sys.argv[1]
     record_project_files(root_path)
 
-    graph = Digraph('G', filename='source_tree.gv')
+    graph = Digraph('G', filename='source_tree.dot')
 
     # Recurse through the project files
     for source_file in files_in_tree:
